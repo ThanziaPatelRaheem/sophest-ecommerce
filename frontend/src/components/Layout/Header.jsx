@@ -254,7 +254,7 @@ const Header = () => {
               </div>
             </NavLink>
             <NavLink
-              to="/our-story"
+              to="/about-us"
               className={({ isActive }) =>
                 isActive ? "nav-link active-link" : "nav-link"
               }

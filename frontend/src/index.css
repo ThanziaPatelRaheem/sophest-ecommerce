@@ -3803,25 +3803,31 @@ input[type="checkbox"] {
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 65px 20px;
+    padding: 44px 20px;
   }
 
   .about-story-content {
-    padding: 55px 20px;
+    padding: 36px 20px 24px;
   }
 
   .about-story-content h2 {
     font-size: 32px;
   }
 
-  .about-values {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0 20px 55px;
+  .about-story-content p,
+  .about-value-card p {
+    font-size: 15px;
   }
 
-  .about-value-card {
-    padding: 35px 28px;
+  .about-values {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 0 20px 36px;
+  }
+
+  .about-value-card,
+  .about-value-card:nth-child(2) {
+    padding: 24px 20px;
   }
 
   .about-value-card h3 {
@@ -3829,7 +3835,7 @@ input[type="checkbox"] {
   }
 
   .about-promise {
-    padding: 55px 20px 65px;
+    padding: 40px 20px 48px;
   }
 }
 
