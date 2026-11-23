@@ -914,6 +914,31 @@ header {
   }
 }
 
+@media (min-width: 1024px) {
+  .header-actions .desktop-login-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border: 1px solid #0f3b2e;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #0f3b2e;
+  }
+
+  .header-actions .desktop-login-link .login-info {
+    margin: 0;
+    line-height: 1.25;
+    color: inherit;
+  }
+
+  .header-actions .desktop-login-link:hover,
+  .header-actions .desktop-login-link:focus-visible {
+    background-color: #0f3b2e;
+    color: #fff;
+  }
+}
+
 /* Laptop header: retain the desktop navigation without overflowing at 1024px. */
 @media (min-width: 1024px) and (max-width: 1199.98px) {
   .header {

@@ -142,7 +142,9 @@ const Header = () => {
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
-                    isActive ? "nav-link-desk active-link" : "nav-link-desktop"
+                    isActive
+                      ? "desktop-login-link nav-link-desk active-link"
+                      : "desktop-login-link nav-link-desktop"
                   }
                   style={{ textDecoration: "none", zIndex: 50 }}
                 >
