@@ -21,7 +21,7 @@ process.on("uncaughtException", (err) => {
   console.log(err.stack);
   process.exit(1);
 });
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config({ path: "./backend/.env" });
 }
 console.log("Loaded .env, NODE_ENV =", process.env.NODE_ENV);

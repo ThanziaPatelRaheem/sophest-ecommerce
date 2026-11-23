@@ -7,7 +7,7 @@ export const connectDB = async () => {
     if (process.env.NODE_ENV === "DEVELOPMENT")
       DB_URI = process.env.DB_LOCAL_URI;
 
-    if (process.env.NODE_ENV === "production") DB_URI = process.env.DB_URI;
+    if (process.env.NODE_ENV === "PRODUCTION") DB_URI = process.env.DB_URI;
 
     if (!DB_URI) {
       throw new Error("DB_URI is not defined for current NODE_ENV");

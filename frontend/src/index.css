@@ -883,6 +883,9 @@ body {
   font-size: 0.75rem;
   margin: 0;
 }
+.review-prompt-box .login-reminder {
+  color: #fff;
+}
 .tab-btn-area {
   display: flex;
   gap: 1em;
