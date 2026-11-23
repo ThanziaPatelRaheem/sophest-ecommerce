@@ -1,0 +1,118 @@
+/* =====================================================
+               TRENDING CATEGORY
+===================================================== */
+/* SOPHEST — FEATURED PRODUCTS */
+
+.trending-section {
+  grid-column: 2 / -2;
+  margin: 0 auto 55px;
+  padding: 0;
+}
+
+/* Center the heading */
+.trending-section .section-header-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.trending-list-container {
+  grid-column: 2/-2;
+  display: flex;
+  gap: 2em;
+  overflow-x: scroll;
+  padding: 1.2em;
+  margin-top: -1em;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.trending-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.trending-section .product-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+
+/* Gold decorative lines */
+.trending-section .product-heading::before,
+.trending-section .product-heading::after {
+  content: "";
+  width: 90px;
+  height: 1px;
+  background: #d4af78;
+  flex-shrink: 0;
+}
+
+.trending-section .trend-heading {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #0f3b2e;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+
+  .trending-section .product-heading {
+    gap: 12px;
+  }
+
+  .trending-section .product-heading::before,
+  .trending-section .product-heading::after {
+    width: 30px;
+  }
+
+  .trending-section .trend-heading {
+    font-size: 23px;
+  }
+}
+.trending-section .trending-list-container > p {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #6b7068;
+}
+/* SOPHEST — VIEW ALL PRODUCTS BUTTON */
+
+.trending-section .product-load-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  margin: 20px auto 0;
+  padding: 11px 28px;
+
+  background-color: #0f3b2e;
+  color: #faf7ef;
+  border: 1px solid #0f3b2e;
+  border-radius: 4px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+
+  transform: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.trending-section .product-load-more:hover,
+.trending-section .product-load-more:focus-visible {
+  background-color: #185541;
+  color: #ffffff;
+  transform: none;
+}

@@ -1,0 +1,56 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { userApi } from "./userApi";
+
+export const authApi = createApi({
+  reducerPath: "authApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_API_URL,
+    credentials: "include",
+  }),
+  endpoints: (builder) => ({
+    register: builder.mutation({
+      query(body) {
+        return {
+          url: "/register",
+          method: "POST",
+          body,
+        };
+      },
+
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          await dispatch(userApi.endpoints.getMe.initiate(null));
+        } catch (error) {
+          console.log("error from the authApi", error);
+        }
+      },
+    }),
+    login: builder.mutation({
+      query(body) {
+        return {
+          url: "/login",
+          method: "POST",
+          body,
+        };
+      },
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          await dispatch(userApi.endpoints.getMe.initiate(null));
+        } catch (error) {
+          console.log("error from the authApi", error);
+        }
+      },
+    }),
+    logout: builder.mutation({
+      query: () => ({
+        url: "/logout",
+        method: "POST",
+      }),
+    }),
+  }),
+});
+
+export const { useLoginMutation, useRegisterMutation, useLogoutMutation } =
+  authApi;

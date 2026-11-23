@@ -1,0 +1,23 @@
+.loading-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #faf7ef;
+}
+
+.loading-spinner {
+  font-size: 48px;
+  color: #0f3b2e;
+  animation: sophest-spin 1s linear infinite;
+}
+
+@keyframes sophest-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

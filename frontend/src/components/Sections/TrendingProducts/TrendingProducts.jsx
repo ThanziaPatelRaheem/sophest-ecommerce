@@ -1,0 +1,53 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import ProductCard from "../../ProductCard";
+import "./TrendingProducts.css";
+import ScrollArrows from "../../ScrollArrows";
+import useHorizontalScroll from "../../../hooks/useHorizontalScroll";
+import { useGetTrendingProductsQuery } from "../../../redux/api/productApi";
+
+const TrendingProducts = ({ addToCart }) => {
+  const { scrollRef, scroll, canScrollLeft, canScrollRight } = useHorizontalScroll(150);
+
+  const { data, isLoading, isFetching, isError } =
+    useGetTrendingProductsQuery();
+
+  const trendingProducts = data?.products || [];
+
+  return (
+    <>
+      <section className="trending-section main-grid mobile-card-carousel">
+        <div className="section-header-row">
+          <div className="product-heading">
+            <h2 className="trend-heading">Featured Products</h2>
+          </div>
+          {trendingProducts.length > 0 && <ScrollArrows onScroll={scroll} canScrollLeft={canScrollLeft} canScrollRight={canScrollRight} />}
+        </div>
+
+        <div className="trending-list-container carousel-track" ref={scrollRef}>
+          {isLoading || isFetching ? (
+            <p>Loading trending products...</p>
+          ) : isError ? (
+            <p>Could not load recommended products.</p>
+          ) : trendingProducts.length === 0 ? (
+            <p>No trending products available yet.</p>
+          ) : (
+            trendingProducts.map((product) => (
+              <ProductCard
+                key={product._id}
+                product={product}
+                addToCart={addToCart}
+              />
+            ))
+          )}
+        </div>
+
+        <Link to="/products" className="product-load-more">
+          View All Products
+        </Link>
+      </section>
+    </>
+  );
+};
+
+export default TrendingProducts;

@@ -1,0 +1,205 @@
+.mobile-card-carousel.main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+.mobile-card-carousel.main-grid .section-header-row,
+.mobile-card-carousel.main-grid > .product-load-more {
+  grid-column: 1 / -1;
+}
+
+.mobile-card-carousel.main-grid .carousel-track {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-width: 0;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-card-carousel.main-grid .carousel-track > .category-item,
+.mobile-card-carousel.main-grid .carousel-track > .product-container {
+  flex: 0 0 var(--carousel-card-width, 250px);
+  width: var(--carousel-card-width, 250px);
+  min-width: 0;
+  max-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1024px) {
+  .categories-section.mobile-card-carousel.main-grid .carousel-track {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    margin-top: 30px;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .mobile-card-carousel.main-grid {
+    --carousel-card-width: 100%;
+    margin-top: 0;
+    margin-bottom: 32px;
+    row-gap: 12px;
+  }
+
+  .mobile-card-carousel.main-grid .section-header-row {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+
+  .mobile-card-carousel .arrow-controls {
+    display: flex;
+    gap: 12px;
+  }
+
+  .mobile-card-carousel .carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #faf7ef;
+    color: #0f3b2e;
+    border: 1px solid #d4af78;
+    border-radius: 50%;
+  }
+
+  .mobile-card-carousel .carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .mobile-card-carousel .carousel-arrow:focus-visible {
+    outline: 2px solid #0f3b2e;
+    outline-offset: 3px;
+  }
+
+  /* Keep single cards compact on medium-width phones. */
+  @media (min-width: 400px) and (max-width: 475px) {
+    .categories-section.mobile-card-carousel.main-grid .carousel-track {
+      max-width: 340px;
+      margin-inline: auto;
+    }
+
+    .mobile-card-carousel.main-grid .carousel-track:has(> .product-container) {
+      max-width: 340px;
+      margin-inline: auto;
+    }
+
+    .mobile-card-carousel.main-grid .product-image-container {
+      height: 250px;
+      aspect-ratio: auto;
+    }
+  }
+
+  /* Wider phones have room for two complete cards with the existing gap. */
+  @media (min-width: 476px) {
+    .mobile-card-carousel.main-grid {
+      --carousel-card-width: calc((100% - 16px) / 2);
+    }
+  }
+
+  /* Laptop product tracks show three cards; collections use a compact grid. */
+  @media (min-width: 1024px) {
+    .mobile-card-carousel.main-grid {
+      --carousel-card-width: calc((100% - 32px) / 3);
+      row-gap: 20px;
+    }
+
+    .mobile-card-carousel.main-grid .section-header-row {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .mobile-card-carousel.main-grid .product-heading {
+      width: auto;
+      min-width: 0;
+      justify-content: flex-start;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .mobile-card-carousel.main-grid .product-heading h2 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.25;
+      text-align: left;
+    }
+
+    .mobile-card-carousel.main-grid .product-heading::before {
+      display: none;
+    }
+
+    .mobile-card-carousel.main-grid .product-heading::after {
+      width: 50px;
+      display: flex;
+      flex: 0 0 50px;
+    }
+
+    .categories-section.mobile-card-carousel.main-grid {
+      --carousel-card-width: 100%;
+    }
+
+    .categories-section.mobile-card-carousel.main-grid .carousel-track {
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .categories-section.mobile-card-carousel .category-icon-wrapper {
+      height: 110px;
+    }
+
+    .categories-section.mobile-card-carousel .category-card-content {
+      min-height: 0;
+      padding: 10px;
+    }
+
+    .categories-section.mobile-card-carousel .category-name {
+      min-height: 0;
+      margin-bottom: 4px;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .categories-section.mobile-card-carousel .category-description {
+      font-size: 11px;
+      line-height: 1.4;
+    }
+  }
+
+  .mobile-card-carousel.main-grid .carousel-track > p {
+    flex: 0 0 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    margin: 8px 0;
+  }
+
+  .mobile-card-carousel.main-grid > .product-load-more {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    margin: 4px auto 0;
+  }
+}
+
+@media (max-width: 1199.98px) and (prefers-reduced-motion: reduce) {
+  .mobile-card-carousel.main-grid .carousel-track {
+    scroll-behavior: auto;
+  }
+}
