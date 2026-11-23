@@ -21,7 +21,7 @@ process.on("uncaughtException", (err) => {
   console.log(err.stack);
   process.exit(1);
 });
-if (process.env.NODE_ENV !== "PRODUCTION") {
+if (process.env.NODE_ENV !== "production") {
   dotenv.config({ path: "./backend/.env" });
 }
 console.log("Loaded .env, NODE_ENV =", process.env.NODE_ENV);
@@ -33,9 +33,9 @@ const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://sophest-ecommerce.vercel.app",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
-// const allowedOrigins = ["http://localhost:5173"];
 
 app.use(
   cors({
