@@ -31,12 +31,11 @@ console.log("connectDB called");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// const allowedOrigins = [
-//   "http://localhost:5173",
-//   "https://grocerly-flax.vercel.app",
-// ];
-
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+// const allowedOrigins = ["http://localhost:5173"];
 
 app.use(
   cors({
@@ -79,7 +78,7 @@ app.use("/api", paymentRoutes);
 // }
 
 app.get("/", (req, res) => {
-  res.send("Honey Store API is running. Try /api/products");
+  res.send("Sophest API is running. Try /api/products");
 });
 app.use(errorMiddleware);
 
