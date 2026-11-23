@@ -36,7 +36,7 @@ const Header = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  const { data: userData, isLoading } = useGetMeQuery();
+  useGetMeQuery();
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -147,7 +147,7 @@ const Header = () => {
                   style={{ textDecoration: "none", zIndex: 50 }}
                 >
                   <div className="nav-items-desktop">
-                    {!isLoading && <p className="login-info"> Login</p>}
+                    <p className="login-info"> Login</p>
                   </div>
                 </NavLink>
               )}
